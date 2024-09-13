@@ -25,18 +25,25 @@ import java.util.stream.Collectors;
 public class UmsAdminCacheServiceImpl implements UmsAdminCacheService {
     @Autowired
     private UmsAdminService adminService;
+
     @Autowired
     private RedisService redisService;
+
     @Autowired
     private UmsAdminRoleRelationMapper adminRoleRelationMapper;
+
     @Autowired
     private UmsAdminRoleRelationDao adminRoleRelationDao;
+
     @Value("${redis.database}")
     private String REDIS_DATABASE;
+
     @Value("${redis.expire.common}")
     private Long REDIS_EXPIRE;
+
     @Value("${redis.key.admin}")
     private String REDIS_KEY_ADMIN;
+
     @Value("${redis.key.resourceList}")
     private String REDIS_KEY_RESOURCE_LIST;
 
@@ -92,8 +99,8 @@ public class UmsAdminCacheServiceImpl implements UmsAdminCacheService {
     @Override
     public UmsAdmin getAdmin(String username) {
         String key = REDIS_DATABASE + ":" + REDIS_KEY_ADMIN + ":" + username;
-        return (UmsAdmin) redisService.get(key);
-    }
+        return (UmsAdmin) redisService.get(key);  //这里它是直接从redis当中获取到的，那么它是从哪插入redis的呢？
+    }                                            //它的键是username，值是UmsAdmin对象
 
     @Override
     public void setAdmin(UmsAdmin admin) {

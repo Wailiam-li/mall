@@ -60,7 +60,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     @Override
     public UmsAdmin getAdminByUsername(String username) {
         //先从缓存中获取数据
-        UmsAdmin admin = getCacheService().getAdmin(username);
+        UmsAdmin admin = getCacheService().getAdmin(username); //这里感觉这些乱七八糟的加速的查询的东西还是没有跟业务代码分开，如果这里不需要那么快的话，感觉是有点多余的；
         if (admin != null) return admin;
         //缓存中没有从数据库中获取
         UmsAdminExample example = new UmsAdminExample();
@@ -267,8 +267,8 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         UmsAdmin admin = getAdminByUsername(username);
         if (admin != null) {
             List<UmsResource> resourceList = getResourceList(admin.getId());
-            return new AdminUserDetails(admin,resourceList);
-        }
+            return new AdminUserDetails(admin,resourceList); //这里AdminUserDetails方法的返回类型为什么是UserDetails——>因为
+        }                     //UserDetails是个springboot框架的接口，而AdminUserDetails实现了UserDetails接口，所以可以返回AdminUserDetails
         throw new UsernameNotFoundException("用户名或密码错误");
     }
 
