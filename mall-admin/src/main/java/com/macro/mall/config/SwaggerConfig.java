@@ -20,7 +20,7 @@ public class SwaggerConfig extends BaseSwaggerConfig {
         return SwaggerProperties.builder()
                 .apiBasePackage("com.macro.mall.controller")
                 .title("mall后台系统")
-                .description("mall后台相关接口文档")
+                .description("mall后台相关接口文档. 管理员用户登录：账号：admin,密码：macro123")
                 .contactName("macro")
                 .version("1.0")
                 .enableSecurity(true)
