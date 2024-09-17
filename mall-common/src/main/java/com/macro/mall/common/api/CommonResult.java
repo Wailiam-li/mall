@@ -32,7 +32,7 @@ public class CommonResult<T> {
      *
      * @param data 获取的数据
      */
-    public static <T> CommonResult<T> success(T data) {
+    public static <T> CommonResult<T> success(T data) {  //有空可以研究一下这个，对比用的Response.of()
         return new CommonResult<T>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), data);
     }
 

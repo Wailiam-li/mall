@@ -66,7 +66,8 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         UmsAdminExample example = new UmsAdminExample();
         example.createCriteria().andUsernameEqualTo(username);
         List<UmsAdmin> adminList = adminMapper.selectByExample(example);
-        if (adminList != null && adminList.size() > 0) {
+//        if (adminList != null && adminList.size() > 0) {
+        if (!CollectionUtils.isEmpty(adminList)){
             admin = adminList.get(0);
             //将数据库中的数据存入缓存中
             getCacheService().setAdmin(admin);
@@ -100,7 +101,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         String token = null;
         //密码需要客户端加密后传递
         try {
-            UserDetails userDetails = loadUserByUsername(username);
+            UserDetails userDetails = loadUserByUsername(username);  //loadUserByUsername
             if(!passwordEncoder.matches(password,userDetails.getPassword())){
                 Asserts.fail("密码不正确");
             }
@@ -264,7 +265,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     @Override
     public UserDetails loadUserByUsername(String username){
         //获取用户信息
-        UmsAdmin admin = getAdminByUsername(username);
+        UmsAdmin admin = getAdminByUsername(username);  //getAdminByUsername方法调用了redis的缓存；
         if (admin != null) {
             List<UmsResource> resourceList = getResourceList(admin.getId());
             return new AdminUserDetails(admin,resourceList);
@@ -273,7 +274,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     }
 
     @Override
-    public UmsAdminCacheService getCacheService() {
+    public UmsAdminCacheService getCacheService() {   //这里这个方法有啥用呢？
         return SpringUtil.getBean(UmsAdminCacheService.class);
     }
 
