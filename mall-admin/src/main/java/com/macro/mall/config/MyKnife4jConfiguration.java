@@ -16,7 +16,7 @@ import springfox.documentation.spring.web.plugins.Docket;
  * <p>
  * 问：这里很好奇EDM中是怎么把这些配置 配到 yml文件中去的
  */
-
+/*
 @Configuration
 //@EnableOpenApi
 //@EnableKnife4j     //开启动态配置   ,详情解释见此启动类当中
@@ -25,7 +25,7 @@ public class MyKnife4jConfiguration {
 
     /**
      * 打印swagger状态
-     */
+
     MyKnife4jConfiguration() {
         log.info("启动swagger文档规范... ...");
     }
@@ -64,5 +64,5 @@ public class MyKnife4jConfiguration {
 
 
 
-}
+}*/
 
