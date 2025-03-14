@@ -12,8 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 
-
-
 //@EnableKnife4j
 @SpringBootApplication
 public class MallAdminApplication {
