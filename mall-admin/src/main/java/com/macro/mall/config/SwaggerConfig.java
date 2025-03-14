@@ -21,8 +21,8 @@ public class SwaggerConfig extends BaseSwaggerConfig {
         return SwaggerProperties.builder()
                 .apiBasePackage("com.macro.mall.controller")
                 .title("mall后台系统")
-                .description("mall后台相关接口文档. 管理员用户登录：账号：admin,密码：macro123")
-                .description("注：根据以上账号密码到“后台用户管理”的/admin/login接口获取token，到Authorize中授权，注：头部需要带上“Bearer”")
+                .description("mall后台相关接口文档. 管理员用户登录：账号：admin,密码：macro123。" +
+                        "注：根据以上账号密码到“后台用户管理”的/admin/login接口获取token，到Authorize中授权，注：头部需要带上“Bearer”")
                 .contactName("macro")
                 .version("1.0")
                 .enableSecurity(true)
