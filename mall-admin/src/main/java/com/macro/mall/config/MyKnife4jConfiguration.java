@@ -1,5 +1,6 @@
 package com.macro.mall.config;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,16 +17,16 @@ import springfox.documentation.spring.web.plugins.Docket;
  * <p>
  * 问：这里很好奇EDM中是怎么把这些配置 配到 yml文件中去的
  */
-/*
+
 @Configuration
 //@EnableOpenApi
-//@EnableKnife4j     //开启动态配置   ,详情解释见此启动类当中
+@EnableKnife4j     //开启动态配置   ,详情解释见此启动类当中
 @Slf4j
 public class MyKnife4jConfiguration {
 
     /**
      * 打印swagger状态
-
+     */
     MyKnife4jConfiguration() {
         log.info("启动swagger文档规范... ...");
     }
@@ -50,11 +51,11 @@ public class MyKnife4jConfiguration {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 //页面标题
-                .title("用户管理 接口文档")
+                .title("mall接口文档")
                 //描述
                 .description("API 描述")
                 //创建人
-                .contact(new Contact("帅气的那个男人", "http://www.baidu.com", "1374438718@qq.com"))
+                .contact(new Contact("帅气的那个男人", "http://www.weili.com", "1374438718@qq.com"))
                 //版本号
                 .version("1.0")
                 .termsOfServiceUrl("https://www.weili.com")
@@ -64,5 +65,8 @@ public class MyKnife4jConfiguration {
 
 
 
-}*/
+
+
+}
+
 
