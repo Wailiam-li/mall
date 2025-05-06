@@ -274,7 +274,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     }
 
     @Override
-    public UmsAdminCacheService getCacheService() {   //这里这个方法有啥用呢？
+    public UmsAdminCacheService getCacheService() {   //这里这个方法有啥用呢？——>获取到注入bean的示例，感觉和使用@Auwaried注解是一个作用。
         return SpringUtil.getBean(UmsAdminCacheService.class);
     }
 
