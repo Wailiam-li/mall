@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,5 +49,21 @@ public class PmsDaoTests {
         PmsProductResult productResult = productDao.getUpdateInfo(7L);
         String json = JSONUtil.parse(productResult).toString();
         LOGGER.info(json);
+    }
+
+    @Value("${jwt.secret}")
+    private String secret;
+    @Value("${jwt.expiration}")
+    private Long expiration;
+    @Value("${jwt.tokenHead}")
+    private String tokenHead;
+
+
+    @Test
+    @Transactional
+    @Rollback
+    public void  test2(){
+        System.out.println(expiration);
+
     }
 }
