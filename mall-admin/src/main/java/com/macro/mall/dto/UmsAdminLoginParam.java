@@ -14,9 +14,9 @@ import javax.validation.constraints.NotEmpty;
 @EqualsAndHashCode
 public class UmsAdminLoginParam {
     @NotEmpty
-    @ApiModelProperty(value = "用户名",required = true)
+    @ApiModelProperty(value = "用户名",required = true,example = "admin")
     private String username;
     @NotEmpty
-    @ApiModelProperty(value = "密码",required = true)
+    @ApiModelProperty(value = "密码",required = true,example = "macro123")
     private String password;
 }

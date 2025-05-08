@@ -6,6 +6,8 @@ import com.macro.mall.dao.PmsMemberPriceDao;
 import com.macro.mall.dao.PmsProductDao;
 import com.macro.mall.dto.PmsProductResult;
 import com.macro.mall.model.PmsMemberPrice;
+import io.jsonwebtoken.Jwt;
+import io.jsonwebtoken.Jwts;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -51,19 +54,5 @@ public class PmsDaoTests {
         LOGGER.info(json);
     }
 
-    @Value("${jwt.secret}")
-    private String secret;
-    @Value("${jwt.expiration}")
-    private Long expiration;
-    @Value("${jwt.tokenHead}")
-    private String tokenHead;
 
-
-    @Test
-    @Transactional
-    @Rollback
-    public void  test2(){
-        System.out.println(expiration);
-
-    }
 }

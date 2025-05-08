@@ -267,9 +267,9 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         //获取用户信息
         UmsAdmin admin = getAdminByUsername(username);  //getAdminByUsername方法调用了redis的缓存；
         if (admin != null) {
-            List<UmsResource> resourceList = getResourceList(admin.getId());
+            List<UmsResource> resourceList = getResourceList(admin.getId());  //这里是查询用户所能访问的哪些模块的接口
             return new AdminUserDetails(admin,resourceList); //这里AdminUserDetails方法的返回类型为什么是UserDetails——>因为
-        }                     //UserDetails是个springboot框架的接口，而AdminUserDetails实现了UserDetails接口，所以可以返回AdminUserDetails
+        }                     //UserDetails是个接口，而AdminUserDetails实现了UserDetails接口，所以可以返回AdminUserDetails
         throw new UsernameNotFoundException("用户名或密码错误");
     }
 

@@ -16,6 +16,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class CommonSecurityConfig {
 
+    /**
+     * 注：通过这里的配置是指定了 PasswordEncoder 的实现类为BCryptPasswordEncoder。
+     * @return
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
